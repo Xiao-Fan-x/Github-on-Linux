@@ -7,7 +7,7 @@ public class problem_6 {
         if(c>='0' && c<='9') return new int[] {c-'0',1};
 
         int[] v1 = evaluate(x.substring(1));
-        int[] v2 = evaluate(x.substring(1+v1[1])); //__________________________________________;  //填空位置
+        int[] v2 = evaluate(x.substring(1+v1[1])); //__________________;  //填空位置
 
         int v = Integer.MAX_VALUE;
         if(c=='+') v = v1[0] + v2[0];
