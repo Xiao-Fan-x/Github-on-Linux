@@ -1,6 +1,20 @@
 public class problem_5 {
     public static void main(String[] args) {
-        System.out.println("hello");
+        
+        int[] a = new int[]{25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0};
+        
+        for (int i=0; i<a.length; i++ ) {
+            System.out.print(a[i]+" ");
+        }
+
+        sort(a);
+
+        System.out.println(" ");
+        
+        for (int i=0; i<a.length; i++ ) {
+            System.out.print(a[i]+" ");
+        }
+        
     }
 
     static void sort(int[] x)
@@ -24,7 +38,7 @@ public class problem_5 {
                 right--;
             }
             else{
-                ________________p++________;  //代码填空位置
+                p++;  //代码填空位置
             }
         }
     }
