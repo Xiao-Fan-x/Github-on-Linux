@@ -15,16 +15,20 @@ public class Vector {
 }
 
 class A{
-    private a=1;
-    private b=2;
+    private int a=1;
+    private int b=2;
 
-    private void A(int i){
+    public void A(int i){
         a=i;
     }
 }
 
 class B extends A{
     public static void main(String[] args) {
-        Z
+        B sim = new B();
+        System.out.println(sim.b);
     }
+
+//    private int b = 3;
+
 }
