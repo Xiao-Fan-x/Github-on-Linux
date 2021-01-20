@@ -31,7 +31,44 @@
         峰值内存消耗（含虚拟机） < 64M
         CPU消耗  < 3000ms
 */
+import java.util.Scanner;
 
 public class problem_8 {
+
+    static int ans;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+//        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = {1,2,3};
+        f(arr,0);
+        System.out.println("");
+    }
+
+    private static void f(int[] arr, int k) {
+        if (k == 9) {
+//            ans++;
+            print(arr);
+
+        }
+        for (int i=0; i<arr.length;i++){
+            int temp = arr[i];
+            arr[i] = arr[k];
+            arr[k] = temp;
+
+            f(arr,k-1);
+
+            temp = arr[i];
+            arr[i] = arr[k];
+            arr[k] = temp;
+        }
+    }
+
+    private static void print(int[] arr) {
+        for (int i = 0; i< arr.length;i++){
+            System.out.println(arr[i]);
+        }
+        System.out.println();
+    }
 
 }
