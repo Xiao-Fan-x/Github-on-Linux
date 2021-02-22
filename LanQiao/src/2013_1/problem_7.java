@@ -1,5 +1,3 @@
-import jdk.internal.org.objectweb.asm.tree.LookupSwitchInsnNode;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
