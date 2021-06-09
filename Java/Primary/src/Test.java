@@ -1,20 +1,32 @@
 public class Test {
-    public static void main(String[] args) {
-        B a = new B();
-        String str = "l";
-        a.nww(str);
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Member memberA = new Member("xiaofan",16);
+        Member memberB = (Member) memberA.clone();
+        System.out.println(memberA.toString());
+        System.out.println(memberB.toString());
     }
 }
 
-class A{
-    int i;
-    public void nww(String a){
-        System.out.println("A");
-    }
-}
+class Member implements Cloneable{
+    private String name;
+    private int age;
 
-class B extends A{
-    public void nww(int a) {
-        System.out.println("B");
+    public Member(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                " Member{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
