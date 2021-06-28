@@ -1,9 +1,11 @@
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Test {
     public static void main(String[] args) {
-        Locale loc = new Locale("zh","CN");
-        System.out.println(loc);
+        ResourceBundle resource = ResourceBundle.getBundle("cn.mldn.demo");
+        String val = resource.getString("info");
+        System.out.println(val);
     }
 }
 
