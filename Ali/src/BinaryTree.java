@@ -103,13 +103,13 @@ public class BinaryTree<T extends Comparable<T>> {
         Node removeNode = this.root.getRemoveNode(data);
         if (removeNode != null) {
             //没有任何子节点
-            if (removeNode.left == null || removeNode.right == null) {
+            if (removeNode.left == null && removeNode.right == null) {
                 removeNode.parent.left = null;
-                removeNode.parent.right = null;
+//                removeNode.parent.right = null;
                 removeNode.parent = null;
-            } else if (removeNode.left != null || removeNode.right == null) {
+            } else if (removeNode.left != null && removeNode.right == null) {
                 removeNode.left.parent = removeNode.parent;
-            } else if (removeNode.left == null || removeNode.right != null) {
+            } else if (removeNode.left == null && removeNode.right != null) {
                 removeNode.right.parent = removeNode.parent;
             } else {
                 Node moveNode = removeNode.right;
