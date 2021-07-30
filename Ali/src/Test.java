@@ -1,43 +1,19 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Test {
-    public static void main(String args[]) {
-        Callme target = new Callme();
-        Caller ob1 = new Caller(target, "Hello");
-        Caller ob2 = new Caller(target, "Synchronized");
-        Caller ob3 = new Caller(target, "World");
-        // wait for threads to end
-        try {
-            ob1.t.join();
-            ob2.t.join();
-            ob3.t.join();
-        } catch(InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-    }
-}
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date resultDate = new Date();
+        String starttime = sdf.format(resultDate);
+        Calendar ca = Calendar.getInstance();
+        ca.add(Calendar.YEAR, +1); // 年份减1
+        resultDate = ca.getTime(); // 结果
+        String endtime = sdf.format(resultDate);
+        System.out.println(starttime+"  "+endtime);
 
-class Callme {
-    void call(String msg) {
-        System.out.print("[" + msg);
-        try {
-            Thread.sleep(1000);
-        } catch(InterruptedException e) {
-            System.out.println("Interrupted");
-        }
-        System.out.println("]");
-    }
-}
-
-class Caller implements Runnable {
-    String msg;
-    Callme target;
-    Thread t;
-    public Caller(Callme targ, String s) {
-        target = targ;
-        msg = s;
-        t = new Thread(this);
-        t.start();
-    }
-    public void run() {
-        target.call(msg);
+//         System.out.println(sdf.format(date));
     }
 }
