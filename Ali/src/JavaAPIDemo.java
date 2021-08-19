@@ -1,60 +1,46 @@
-import java.util.Arrays;
 
-public class JavaAPIDemo{
 
+
+public class JavaAPIDemo {
     public static void main(String[] args) {
-        BinaryTree<Person> tree = new BinaryTree<Person>();
-        tree.add(new Person("小强-80",80));
-        tree.add(new Person("小强-85",85));
-        tree.add(new Person("小强-30",30));
-        tree.add(new Person("小强-50",50));
-        tree.add(new Person("小强-60",60));
-        tree.add(new Person("小强-90",90));
-        tree.add(new Person("小强-10",10));
-        tree.add(new Person("小强-55",55));
-        tree.add(new Person("小强-70",70));
-        tree.add(new Person("小强-95",95));
-        tree.remove(new Person("小强-10",10));
-        System.out.println(Arrays.toString(tree.toArray()));
+        new Thread(()->{
+            Message msg1 = new Message();
+            msg1.setInfo("第一个线程");
+            Channel.setMessage(msg1);
+            Channel.send();
+        },"线程一").start();
+        new Thread(()->{
+            Message msg2 = new Message();
+            msg2.setInfo("第二个线程");
+            Channel.setMessage(msg2);
+            Channel.send();
+        },"线程二").start();
+        new Thread(()->{
+            Message msg3 = new Message();
+            msg3.setInfo("第三个线程");
+            Channel.setMessage(msg3);
+            Channel.send();
+        },"线程三").start();
     }
 }
 
-class Person implements Comparable<Person>{
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+class Channel{
+    private static final ThreadLocal<Message> THREADLOCAL = new ThreadLocal<Message>();
+    private Channel(){}
+    public static void setMessage(Message m){
+        THREADLOCAL.set(m);
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Person o) {
-        return this.age - o.age;
+    public static void send(){
+        System.out.println(Thread.currentThread().getName()+"[消息发送]"+ THREADLOCAL.get().getInfo());
     }
 }
 
+class Message{
+    private String info;
+    public void setInfo(String info){
+        this.info = info;
+    }
+    public String getInfo() {
+        return info;
+    }
+}

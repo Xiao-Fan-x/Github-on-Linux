@@ -5,7 +5,7 @@ public class InterfaceDemo {
     }
 }
 
-abstract class D{
+abstract class D {
     String name = "xiao";
     int age = 18;
 

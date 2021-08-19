@@ -1,13 +1,13 @@
 import java.util.Arrays;
 
-public class shellSortSmallToBig{
+public class shellSortSmallToBig {
     public static void main(String[] args) {
-        int[] data = new int[] { 26, 53, 67, 48, 57, 13, 48, 32, 60, 50 };
+        int[] data = new int[]{26, 53, 67, 48, 57, 13, 48, 32, 60, 50};
         shellSortSmallToBig(data);
         System.out.println(Arrays.toString(data));
     }
 
-    public  static void shellSortSmallToBig(int[] data) {
+    public static void shellSortSmallToBig(int[] data) {
         int j = 0;
         int temp = 0;
         for (int increment = data.length / 2; increment > 0; increment /= 2) {

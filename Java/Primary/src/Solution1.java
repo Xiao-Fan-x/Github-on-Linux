@@ -18,10 +18,10 @@ public class Solution1 {
         }
 
         grid[r][c] = '0';
-        dfs(grid,r-1,c);
-        dfs(grid,r+1,c);
-        dfs(grid,r,c-1);
-        dfs(grid,r,c+1);
+        dfs(grid, r - 1, c);
+        dfs(grid, r + 1, c);
+        dfs(grid, r, c - 1);
+        dfs(grid, r, c + 1);
     }
 
 

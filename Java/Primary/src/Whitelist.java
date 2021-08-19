@@ -18,8 +18,8 @@ public class Whitelist {
         int num = Integer.parseInt(str);
         System.out.println(num);
         String str1 = "1231.2";
-        System.out.println(str.split("\\.",2)[0]);
-        int num1 = Integer.parseInt(str.split("\\.",2)[0]);
+        System.out.println(str.split("\\.", 2)[0]);
+        int num1 = Integer.parseInt(str.split("\\.", 2)[0]);
         System.out.println(num);
         System.out.println(str.split("\\.").length);
     }

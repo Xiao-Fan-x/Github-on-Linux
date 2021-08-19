@@ -16,8 +16,8 @@ public class CompareVersionDemo {
         int v1_length = v1.split("\\.").length;
         int v2_length = v2.split("\\.").length;
 
-        if (v1_length==v2_length){
-            while (v2.split("\\.").length>=2) {
+        if (v1_length == v2_length) {
+            while (v2.split("\\.").length >= 2) {
                 String v1_str[] = v1.split("\\.", 2);
                 String v2_str[] = v2.split("\\.", 2);
 
@@ -38,21 +38,21 @@ public class CompareVersionDemo {
 
             if (v1num > v2num) {
                 return 1 * turned;
-            }else if (v1num < v2num) {
+            } else if (v1num < v2num) {
                 return -1 * turned;
-            }else {
+            } else {
                 return 0;
             }
         }
 
-        if (v1_length<v2_length){
+        if (v1_length < v2_length) {
             String temp = v1;
             v1 = v2;
             v2 = temp;
             turned = -1;
         }
 
-        while (v2.split("\\.").length>=2) {
+        while (v2.split("\\.").length >= 2) {
             String v1_str[] = v1.split("\\.", 2);
             String v2_str[] = v2.split("\\.", 2);
 
@@ -60,10 +60,10 @@ public class CompareVersionDemo {
             int v2num = Integer.valueOf(v2_str[0]);
 
             if (v1num > v2num) {
-                return 1*turned;
+                return 1 * turned;
             }
-            if(v1num < v2num) {
-                return -1*turned;
+            if (v1num < v2num) {
+                return -1 * turned;
             }
             v1 = v1_str[1];
             v2 = v2_str[1];
@@ -72,32 +72,32 @@ public class CompareVersionDemo {
         String v1_str[] = v1.split("\\.", 2);
         v1 = v1_str[1];
         char[] v1_str1 = v1.toCharArray();
-        for (int i=0;i<v1.length();i++){
-            if (v1_str1[i]>'0'&&v1_str1[i]<'9') isZero = -1;
+        for (int i = 0; i < v1.length(); i++) {
+            if (v1_str1[i] > '0' && v1_str1[i] < '9') isZero = -1;
         }
 
-        if (isZero == 1){
+        if (isZero == 1) {
             int v1num = Integer.valueOf(v1_str[0]);
             int v2num = Integer.valueOf(v2);
 
             if (v1num > v2num) {
-                return 1*turned;
+                return 1 * turned;
             } else if (v1num < v2num) {
-                return -1*turned;
-            }else {
+                return -1 * turned;
+            } else {
                 return 0;
             }
-        }else {
+        } else {
             int v1num = Integer.valueOf(v1_str[0]);
             int v2num = Integer.valueOf(v2);
 
             if (v1num > v2num) {
-                return 1*turned;
+                return 1 * turned;
             } else if (v1num < v2num) {
-                return -1*turned;
+                return -1 * turned;
             }
         }
-        return 1*turned;
+        return 1 * turned;
     }
 }
 
