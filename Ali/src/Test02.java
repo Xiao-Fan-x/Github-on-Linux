@@ -5,7 +5,6 @@ import java.lang.reflect.Proxy;
 interface IMessage {
     void send();
 }
-
 class MessageReal implements IMessage {
     @Override
     public void send() {
