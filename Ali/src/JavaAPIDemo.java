@@ -43,4 +43,5 @@ class Message{
     public String getInfo() {
         return info;
     }
+
 }
