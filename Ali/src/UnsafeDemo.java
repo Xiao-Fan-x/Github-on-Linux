@@ -10,7 +10,7 @@ public class UnsafeDemo{
         //利用Unsafe类绕过了JVM的管理机制，可以在没有实例化对象的情况下获取一个Singletion类实例化对象
         Singletion instance = (Singletion) unsafeObject.allocateInstance(Singletion.class);
         instance.print();
-     }
+    }
 }
 
 class Singletion{

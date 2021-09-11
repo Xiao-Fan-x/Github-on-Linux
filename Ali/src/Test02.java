@@ -6,6 +6,13 @@ interface IMessage {
     void send();
 }
 
+public class Test02 {
+    public static void main(String[] args) {
+        IMessage msg = (IMessage) new DynaticProxy().bind(new MessageReal());
+        msg.send();
+    }
+}
+
 class MessageReal implements IMessage {
     @Override
     public void send() {
@@ -18,8 +25,9 @@ class DynaticProxy implements InvocationHandler {
 
     /**
      * 进行真实业务对象与代理业务对象之间的绑定处理
+     *
      * @param target 真实业务对象
-     * @return  Proxy生成的代理业务对象
+     * @return Proxy生成的代理业务对象
      */
     public Object bind(Object target) {
         this.target = target;
@@ -37,10 +45,9 @@ class DynaticProxy implements InvocationHandler {
     }
 
     /**
-     *
-     * @param pro   代理类代理的真实代理对象
+     * @param pro    代理类代理的真实代理对象
      * @param method 我们所要调用某个对象真实的方法的Method对象
-     * @param args  指代代理对象方法传递的参数
+     * @param args   指代代理对象方法传递的参数
      * @return
      * @throws Throwable
      */
@@ -56,9 +63,3 @@ class DynaticProxy implements InvocationHandler {
     }
 }
 
-public class Test02 {
-    public static void main(String[] args) {
-        IMessage msg = (IMessage) new DynaticProxy().bind(new MessageReal());
-        msg.send();
-    }
-}
