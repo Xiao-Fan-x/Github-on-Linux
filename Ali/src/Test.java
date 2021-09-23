@@ -1,14 +1,40 @@
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.*;
+import com.mysql.cj.MysqlConnection;
+import com.mysql.cj.jdbc.*;
+import com.mysql.cj.jdbc.Driver;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Test {
+    public static void main(String[] args) {
 
-    public static void main(String[] args) throws Exception {
-//        Map.Entry<String,Integer> entry = Map("da",1);
+        Connection conn = null;
 
-        C num = new B();
-        System.out.println(num.getClass());
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "123456";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, user, password);
+            System.out.println(conn);
+            System.out.println(conn.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                conn = null;
+            }
+        }
+
+    }
+}
+
 
 //        Map<String, String> map = new HashMap<String, String>();
 //        map.put("hollis", "hollischuang");
@@ -22,13 +48,5 @@ public class Test {
 //        size.setAccessible(true);
 //        System.out.println("size : " + size.get(map));
 
-    }
-}
 
-class C {
-    private int m = 1;
-}
 
-class B extends C {
-    private int n = 2;
-}
