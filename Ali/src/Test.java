@@ -15,7 +15,7 @@ public class Test {
         String password = "123456";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class claz = Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, user, password);
             System.out.println(conn);
             System.out.println(conn.toString());

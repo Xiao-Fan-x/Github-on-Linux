@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ali/Ali.iml" filepath="$PROJECT_DIR$/Ali/Ali.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Github-on-Linux.iml" filepath="$PROJECT_DIR$/Github-on-Linux.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/Github-on-Linux1.iml" filepath="$PROJECT_DIR$/Java/Github-on-Linux1.iml" />
       <module fileurl="file://$PROJECT_DIR$/LanQiao/LanQiao.iml" filepath="$PROJECT_DIR$/LanQiao/LanQiao.iml" />
     </modules>

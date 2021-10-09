@@ -13,13 +13,12 @@ public class Num1034 {
         String[] num1 = a.split("\\/");
         String[] num2 = b.split("\\/");
 
-       x = num1.
-
+//       x = num1.
 
         System.out.println(a);
         System.out.println(b);
 
-
         input.close();
+
     }
 }
